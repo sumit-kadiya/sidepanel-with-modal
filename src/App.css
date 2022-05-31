@@ -1,0 +1,45 @@
+.App {
+  text-align: center;
+}
+.container {
+  width: 650px;
+  display: flex;
+  justify-content: space-between;
+  margin: 20px auto;
+}
+.container h1 {
+  color: #fff;
+  padding: 10px 15px;
+  border: 2px solid #fff;
+  border-radius: 10px;
+}
+.containerr {
+  height: 80vh;
+  width: 650px;
+  margin: auto;
+  margin-bottom: 50px;
+}
+.form form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  padding: 0 40px;
+}
+.form input {
+  margin-bottom: 20px;
+  padding: 10px;
+  font-size: 20px;
+}
+.form button {
+  background: linear-gradient(to right, #141e30, #243b55);
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #fff;
+  font-size: 20px;
+}
+.updt-btn {
+  width: 20%;
+  margin-left: 80%;
+}
