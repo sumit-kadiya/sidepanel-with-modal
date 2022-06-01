@@ -57,52 +57,68 @@ function List({ items, removeItem, updateItem }) {
           </TableRow>
         </TableHead>
         <TableBody sx={{ border: 0 }}>
-          {items.map((item, index) => (
-            <TableRow
-              key={item.id}
-              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-            >
+          {items?.length ? (
+            items.map((item, index) => (
+              <TableRow
+                key={item.id}
+                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+              >
+                <TableCell
+                  sx={{ fontWeight: "bold", fontSize: 15 }}
+                  align="center"
+                >
+                  {index + 1}
+                </TableCell>
+                <TableCell
+                  sx={{
+                    fontWeight: "bold",
+                    fontSize: 15,
+                    textTransform: "capitalize",
+                  }}
+                  align="center"
+                >
+                  {item.text}
+                </TableCell>
+                <TableCell
+                  sx={{ fontWeight: "bold", fontSize: 15 }}
+                  align="center"
+                  style={{ display: "flex", justifyContent: "space-evenly" }}
+                >
+                  <IconButton
+                    onClick={() => removeItem(item.id)}
+                    sx={{ color: "#243b55" }}
+                  >
+                    <DeleteIcon />
+                  </IconButton>
+                  <IconButton
+                    sx={{ color: "#243b55" }}
+                    onClick={() =>
+                      setEdit({
+                        id: item.id,
+                        value: item.text,
+                      })
+                    }
+                  >
+                    <EditIcon />
+                  </IconButton>
+                </TableCell>
+              </TableRow>
+            ))
+          ) : (
+            <TableRow>
+              <TableCell></TableCell>
               <TableCell
                 sx={{ fontWeight: "bold", fontSize: 15 }}
                 align="center"
-              >
-                {index + 1}
-              </TableCell>
-              <TableCell
-                sx={{
-                  fontWeight: "bold",
-                  fontSize: 15,
-                  textTransform: "capitalize",
+                style={{
+                  fontStyle: "italic",
                 }}
-                align="center"
               >
-                {item.text}
+                No movie found ☹️
               </TableCell>
-              <TableCell
-                sx={{ fontWeight: "bold", fontSize: 15 }}
-                align="center"
-                style={{ display: "flex", justifyContent: "space-evenly" }}
-              >
-                <IconButton
-                  onClick={() => removeItem(item.id)}
-                  sx={{ color: "#243b55" }}
-                >
-                  <DeleteIcon />
-                </IconButton>
-                <IconButton
-                  sx={{ color: "#243b55" }}
-                  onClick={() =>
-                    setEdit({
-                      id: item.id,
-                      value: item.text,
-                    })
-                  }
-                >
-                  <EditIcon />
-                </IconButton>
-              </TableCell>
+              <TableCell></TableCell>
             </TableRow>
-          ))}
+          )}
         </TableBody>
       </Table>
     </TableContainer>
